@@ -1,0 +1,790 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sidnei Staudt | Palestrante</title>
+<meta name="description" content="Sidnei Staudt, palestrante. Conheça sua trajetória, experiências, palestras e reflexões sobre pessoas, eventos e conexões humanas.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --tinta: #16202e;
+  --suave: #6b7482;
+  --fundo: #ffffff;
+  --fundo-alt: #f5f3ef;
+  --destaque: #c8643b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 75px;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--tinta);
+  background: var(--fundo);
+  line-height: 1.7;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+
+a { color: inherit; }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Seções */
+.tela {
+  min-height: 100vh;
+  min-height: 100svh;
+  scroll-snap-align: start;
+  display: grid;
+}
+
+/* Cabeçalho */
+.topo {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px clamp(20px, 5vw, 56px);
+  mix-blend-mode: difference;
+  color: #fff;
+}
+
+.topo a {
+  text-decoration: none;
+  font-size: .9rem;
+  letter-spacing: .04em;
+}
+
+.topo .marca {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+}
+
+/* Navegação lateral */
+.pontos {
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  mix-blend-mode: difference;
+}
+
+.pontos a {
+  display: block;
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: .4;
+  transform: scale(1);
+  transition: opacity .2s, transform .2s;
+}
+
+.pontos a.ativo {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* Rótulos */
+.rotulo {
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--destaque);
+  margin-bottom: 18px;
+}
+
+/* Introdução */
+.intro {
+  position: relative;
+  color: #fff;
+  align-items: end;
+  background-color: #101318;
+  background-image:
+    linear-gradient(180deg, rgba(10,16,26,.25), rgba(10,16,26,.75)),
+    url('imagens/220407.jpg'),
+    linear-gradient(135deg, #243752, #5b7aa6);
+  background-size: 100% 100%, cover, 100% 100%;
+  background-position: center, center, center;
+  background-repeat: no-repeat;
+}
+
+.intro .conteudo {
+  padding: 0 clamp(20px, 6vw, 80px) clamp(56px, 9vh, 110px);
+  max-width: 900px;
+}
+
+.intro .rotulo { color: #f2c3a8; }
+
+.intro h1 {
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  margin-bottom: 22px;
+}
+
+.intro p {
+  font-size: 1.15rem;
+  max-width: 46ch;
+  opacity: .9;
+}
+
+/* Seção final */
+.back {
+  position: relative;
+  color: #fff;
+  min-height: 100vh;
+  min-height: 100svh;
+  scroll-snap-align: start;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background-color: #101318;
+  background-image:
+    linear-gradient(180deg, rgba(10,16,26,.25), rgba(10,16,26,.75)),
+    url('imagens/212525.jpg'),
+    linear-gradient(135deg, #243752, #5b7aa6);
+  background-size: 100% 100%, cover, 100% 100%;
+  background-position: center, center, center;
+  background-repeat: no-repeat;
+}
+
+.back .conteudo {
+  padding: 0 clamp(20px, 6vw, 80px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.back .rotulo { color: #f2c3a8; }
+
+.back h1 {
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  margin-bottom: 22px;
+}
+
+.back p {
+  font-size: 1.15rem;
+  max-width: 46ch;
+  opacity: .9;
+  margin: 0 auto 20px;
+}
+
+/* Fonte da assinatura Breathing */
+@font-face {
+  font-family: 'Breathing';
+  src: url('fontes/Breathing%20Personal%20Use%20Only.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Assinatura manuscrita exclusiva da seção .back */
+.back .assinatura {
+  font-family: 'Breathing', cursive;
+  font-size: clamp(22px, 3vw, 36px);
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+  transform: translateX(100px);
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .back .assinatura {
+    font-size: 24px;
+    transform: translateX(20px);
+  }
+}
+
+/* Sobre */
+.sobre {
+  background: var(--fundo-alt);
+  place-items: center;
+}
+
+.sobre .conteudo {
+  max-width: 720px;
+  padding: 120px 24px;
+  text-align: center;
+}
+
+.sobre h2 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  margin-bottom: 26px;
+}
+
+.sobre p {
+  color: var(--suave);
+  font-size: 1.1rem;
+}
+
+.sobre h2:empty,
+.back h1:empty {
+  display: none;
+}
+
+.temas {
+  margin-top: 34px;
+  color: var(--tinta);
+  font-size: .95rem;
+  letter-spacing: .04em;
+}
+
+.temas span + span::before {
+  content: "·";
+  margin: 0 12px;
+  color: var(--destaque);
+}
+
+/* Palestras */
+.palestra {
+  grid-template-columns: 1fr 1fr;
+}
+
+.palestra .foto {
+  width: 100%;
+  height: 100%;
+  min-height: 50vh;
+  object-fit: cover;
+  object-position: center;
+  background: #16202e;
+}
+
+.palestra .texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(80px, 10vh, 120px) clamp(24px, 6vw, 88px);
+}
+
+.palestra.inverte .foto { order: 2; }
+
+.palestra .meta {
+  font-size: .9rem;
+  color: var(--suave);
+  margin-bottom: 22px;
+}
+
+.palestra h3 {
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  margin-bottom: 20px;
+}
+
+.palestra p {
+  color: var(--suave);
+  max-width: 44ch;
+  margin-bottom: 30px;
+}
+
+.link {
+  align-self: flex-start;
+  text-decoration: none;
+  font-size: .95rem;
+  border-bottom: 1px solid var(--tinta);
+  padding-bottom: 3px;
+}
+
+.link:hover {
+  color: var(--destaque);
+  border-color: var(--destaque);
+}
+
+/* Contato */
+.contato {
+  background: var(--tinta);
+  color: #fff;
+  place-items: center;
+  text-align: center;
+}
+
+.contato .conteudo { padding: 120px 24px; }
+
+.contato h2 {
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  margin-bottom: 18px;
+}
+
+.contato p {
+  color: #a9b3c2;
+  margin-bottom: 44px;
+}
+
+.canais {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  font-size: 1.05rem;
+}
+
+.canais a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.canais a:hover {
+  border-color: var(--destaque);
+  color: #f2c3a8;
+}
+
+.rodape {
+  margin-top: 80px;
+  font-size: .8rem;
+  color: #6f7b8c;
+}
+
+/* Tablets e celulares */
+@media (max-width: 800px) {
+  .topo {
+    padding: 18px 20px;
+    mix-blend-mode: normal;
+    background: rgba(22,32,46,.88);
+    color: #fff;
+    backdrop-filter: blur(10px);
+  }
+
+  .topo .marca { font-size: 1rem; }
+  .topo a { font-size: .85rem; }
+  .pontos { display: none; }
+
+  .tela {
+    min-height: 100svh;
+    height: auto;
+  }
+
+  /* Capa inicial: imagem inteira, sem zoom */
+  .intro {
+    min-height: 100vh;
+    min-height: 100svh;
+    align-items: end;
+    background-color: #000000;
+    background-image:
+      linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.55)),
+      url('imagens/220407.jpg'),
+      linear-gradient(#000000, #000000);
+    background-size: 100% 100%, contain, 100% 100%;
+    background-position: center, center, center;
+    background-repeat: no-repeat;
+  }
+
+  .intro .conteudo {
+    width: 100%;
+    padding: 110px 24px 60px;
+  }
+
+  .intro h1 {
+    font-size: clamp(2.4rem, 9vw, 4rem);
+    line-height: 1.08;
+    overflow-wrap: break-word;
+  }
+
+  .intro p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .rotulo {
+    font-size: .7rem;
+    letter-spacing: .13em;
+    margin-bottom: 14px;
+  }
+
+  /* Sobre */
+  .sobre {
+    min-height: auto;
+    padding: 30px 0;
+  }
+
+  .sobre .conteudo {
+    width: 100%;
+    max-width: 600px;
+    padding: 80px 24px 60px;
+  }
+
+  .sobre h2 {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+    margin-bottom: 18px;
+  }
+
+  .sobre p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 22px;
+  }
+
+  .sobre h3 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    margin-top: 28px;
+  }
+
+  .temas { line-height: 1.9; }
+
+  /* Palestras: foto inteira acima do texto */
+  .palestra {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .palestra .foto {
+    display: block;
+    order: 0;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+    flex-shrink: 0;
+    background: #16202e;
+  }
+
+  .palestra.inverte .foto { order: 0; }
+
+  .palestra .texto {
+    width: 100%;
+    padding: 38px 24px 52px;
+  }
+
+  .palestra h3 {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    line-height: 1.15;
+    overflow-wrap: break-word;
+  }
+
+  .palestra .meta {
+    font-size: .8rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .palestra p {
+    font-size: .95rem;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .link {
+    display: inline-block;
+    padding: 8px 0;
+    min-height: 44px;
+  }
+
+  /* Seção final: imagem inteira, sem zoom */
+  .back {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 100px 24px 60px;
+    background-color: #000000;
+    background-image:
+      linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.55)),
+      url('imagens/212525.jpg'),
+      linear-gradient(#000000, #000000);
+    background-size: 100% 100%, contain, 100% 100%;
+    background-position: center, center, center;
+    background-repeat: no-repeat;
+  }
+
+  .back .conteudo {
+    width: 100%;
+    padding: 30px 0;
+  }
+
+  .back p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  /* Contato */
+  .contato {
+    min-height: 100svh;
+    padding-top: 40px;
+  }
+
+  .contato .conteudo {
+    width: 100%;
+    padding: 70px 24px 35px;
+  }
+
+  .contato h2 {
+    font-size: clamp(2.2rem, 8vw, 3.2rem);
+  }
+
+  .contato p {
+    font-size: .95rem;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .canais {
+    gap: 16px;
+    font-size: .95rem;
+    overflow-wrap: anywhere;
+  }
+
+  .canais a {
+    display: inline-block;
+    padding: 5px;
+    min-height: 44px;
+  }
+
+  .rodape { margin-top: 45px; }
+}
+
+/* Celulares estreitos */
+@media (max-width: 380px) {
+  .topo { padding: 16px; }
+
+  .intro .conteudo,
+  .sobre .conteudo,
+  .palestra .texto,
+  .contato .conteudo {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .intro h1 { font-size: 2.25rem; }
+  .palestra h3 { font-size: 1.7rem; }
+}
+
+/* Movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Cabeçalho -->
+<div class="topo">
+  <a class="marca" href="#inicio">Sidnei Staudt</a>
+  <div class="menu-links">
+    <a href="#contato">Contato</a>
+  </div>
+</div>
+
+<!-- Navegação lateral -->
+<nav class="pontos" aria-label="Seções">
+  <a href="#inicio" class="ativo" aria-label="Início"></a>
+  <a href="#sobre" aria-label="Sobre"></a>
+  <a href="#palestra1" aria-label="Palestra 1"></a>
+  <a href="#palestra2" aria-label="Palestra 2"></a>
+  <a href="#palestra3" aria-label="Palestra 3"></a>
+  <a href="#palestra4" aria-label="Palestra 4"></a>
+  <a href="#palestra5" aria-label="Palestra 5"></a>
+  <a href="#palestra6" aria-label="Palestra 6"></a>
+  <a href="#palestra7" aria-label="Palestra 7"></a>
+  <a href="#back" aria-label="Mensagem final"></a>
+  <a href="#contato" aria-label="Contato"></a>
+</nav>
+
+<!-- 1. Introdução -->
+<section class="tela intro" id="inicio">
+  <div class="conteudo">
+    <div class="rotulo">Palestrante</div>
+    <h1>Arte, pessoas e experiências que transformam</h1>
+    <p>Minha trajetória sempre foi movida pela curiosidade, criatividade e o desejo de me conectar com pessoas.</p>
+  </div>
+</section>
+
+<!-- 2. Sobre -->
+<section class="tela sobre" id="sobre">
+  <div class="conteudo">
+    <div class="rotulo">Sobre</div>
+    <h2>Quem sou eu</h2>
+    <p>Entre a arte e os eventos, aprendi observar, escutar e a perceber que, por trás de cada encontro, existe muito mais do que aquilo que os olhos conseguem ver.</p>
+
+    <h2></h2>
+    <p>Como cerimonialista, há mais de 23 anos, faço parte de momentos, vivencio experiências e descubro em cada situação, novas maneiras de compreender as conexões humanas.</p>
+
+    <h2></h2>
+    <p>Hoje, levo essa bagagem para o palco, compartilhando histórias, aprendizados e reflexões que aproximam pessoas e despertam novos olhares sobre a vida, as relações e os negócios.</p>
+
+    <h2></h2>
+    <p>Porque compartilhar o que vivemos também é uma forma de transformar!</p>
+
+    <h2></h2>
+    <h3>CONFIRA ABAIXO AS EXPERIÊNCIAS QUE JÁ COMPARTILHEI</h3>
+  </div>
+</section>
+
+<!-- 3. Palestras -->
+<section class="tela palestra" id="palestra1">
+  <img class="foto" src="imagens/212222.jpg" alt="Imagem da palestra 1" loading="lazy">
+  <div class="texto">
+    <div class="rotulo">Feira de Conexões - Vila Flores/RS</div>
+    <h3>LANÇAMENTO EDITORIAL CASAMENTOS</h3>
+    <p>Organização, planejamento e memória, como cada detalhe contribui para transformar um dia único em uma experiência que permanece.</p>
+    <a class="link" href="#contato">Saiba mais</a>
+  </div>
+</section>
+
+<section class="tela palestra inverte" id="palestra2">
+  <img class="foto" src="imagens/220367.jpg" alt="Imagem da palestra 2" loading="lazy">
+  <div class="texto">
+    <div class="rotulo">Jornal Pioneiro, Grupo RBS - Caxias do Sul/RS</div>
+    <h3>REVISTA NOIVAS &amp; FESTAS</h3>
+    <p>Um painel dinâmico sobre os bastidores da organização, planejamento e protocolo de grandes recepções, apresentando as novas tendências do mercado destacadas na edição impressa da Revista Noivas &amp; Festas do Pioneiro, em seu lançamento oficial.</p>
+    <a class="link" href="#contato">Saiba mais</a>
+  </div>
+</section>
+
+<section class="tela palestra" id="palestra3">
+  <img class="foto" src="imagens/217277.jpg" alt="Imagem da palestra 3" loading="lazy">
+  <div class="texto">
+    <div class="rotulo">Bate papo - Caxias do Sul/RS</div>
+    <h3>OS 5 SENTIDOS EM UM EVENTO</h3>
+    <p>Como a visão, audição, olfato, paladar e o tato se unem à organização e ao planejamento para transformar cada detalhe em uma experiência marcante, capaz de permanecer na memória.</p>
+    <a class="link" href="#contato">Saiba mais</a>
+  </div>
+</section>
+
+<section class="tela palestra inverte" id="palestra4">
+  <img class="foto" src="imagens/217276.jpg" alt="Imagem da palestra 4" loading="lazy">
+  <div class="texto">
+    <div class="rotulo">Hub de eventos CDL - Caxias do Sul/RS</div>
+    <h3>TENDÊNCIAS NO UNIVERSO DOS EVENTOS</h3>
+    <p>Um olhar sobre as tendências de ambientação, gastronomia e comportamento no setor de eventos no pós-pandemia, e sobre como as pessoas passaram a viver essas experiências.</p>
+    <a class="link" href="#contato">Saiba mais</a>
+  </div>
+</section>
+
+<section class="tela palestra" id="palestra5">
+  <img class="foto" src="imagens/217286.jpg" alt="Imagem da palestra 5" loading="lazy">
+  <div class="texto">
+    <div class="rotulo">Simpósio Estadual do Varejo - Caxias do Sul/RS</div>
+    <h3>DETALHES QUE FIDELIZAM</h3>
+    <p>Os detalhes do dia a dia que fazem a diferença na experiência do cliente e ajudam a construir fidelidade em uma era cada vez mais digital.</p>
+    <a class="link" href="#contato">Saiba mais</a>
+  </div>
+</section>
+
+<section class="tela palestra inverte" id="palestra6">
+  <img class="foto" src="imagens/217284.jpg" alt="Imagem da palestra 6" loading="lazy">
+  <div class="texto">
+    <div class="rotulo">Mostra Noivas - Porto Alegre/RS</div>
+    <h3>TENDÊNCIA É...</h3>
+    <p>Uma reflexão sobre tendências e individualidade, será que o que está em alta faz sentido para todos os perfis de pessoas e todos os tipos de celebração?</p>
+    <a class="link" href="#contato">Saiba mais</a>
+  </div>
+</section>
+
+<section class="tela palestra" id="palestra7">
+  <img class="foto" src="imagens/220401.jpg" alt="Imagem da palestra 7" loading="lazy">
+  <div class="texto">
+    <div class="rotulo">Imersão PSA - Porto Alegre/RS</div>
+    <h3>THE BEST WEEKEND</h3>
+    <p>Networking, troca de conhecimentos e aperfeiçoamento em comunicação e oratória, ampliando recursos para proporcionar experiências significativas ao público.</p>
+    <a class="link" href="#contato">Saiba mais</a>
+  </div>
+</section>
+
+<!-- Mensagem final -->
+<section class="tela back" id="back">
+  <div class="conteudo">
+    <p>Acredito que a experiência carrega um aprendizado, o encontro deixa marcas e toda história pode nos ensinar a enxergar o mundo de outra maneira.</p>
+    <h1></h1>
+    <p>Compartilhar ideias, provocar novas perspectivas!</p>
+    <div class="assinatura">Sidnei Staudt</div>
+  </div>
+</section>
+
+<!-- Contato -->
+<section class="tela contato" id="contato">
+  <div class="conteudo">
+    <div class="rotulo">Contato</div>
+    <h2>Vamos conversar?</h2>
+    <p>Conte o que você busca e vamos juntos criar uma proposta única para uma experiência transformadora!</p>
+
+    <div class="canais">
+      <a href="mailto:contato@sidneistaudt.com.br">contato@sidneistaudt.com.br</a>
+      <a href="https://wa.me/5554999969213">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/sidneistaudt">LinkedIn</a>
+      <a href="https://www.instagram.com/sidneistaudt_eventos">Instagram</a>
+    </div>
+
+    <div class="rodape">© 2026 Sidnei Staudt</div>
+  </div>
+</section>
+
+<script>
+const secoes = document.querySelectorAll('.tela');
+const pontos = document.querySelectorAll('.pontos a');
+
+function atualizarPonto() {
+  const centroTela = window.innerHeight / 2;
+  let secaoAtual = null;
+  let menorDistancia = Infinity;
+
+  secoes.forEach(secao => {
+    const retangulo = secao.getBoundingClientRect();
+    const centroSecao = retangulo.top + retangulo.height / 2;
+    const distancia = Math.abs(centroSecao - centroTela);
+
+    if (distancia < menorDistancia) {
+      menorDistancia = distancia;
+      secaoAtual = secao;
+    }
+  });
+
+  if (secaoAtual) {
+    pontos.forEach(ponto => {
+      const ativo = ponto.getAttribute('href') === '#' + secaoAtual.id;
+      ponto.classList.toggle('ativo', ativo);
+    });
+  }
+}
+
+window.addEventListener('scroll', atualizarPonto);
+window.addEventListener('resize', atualizarPonto);
+
+atualizarPonto();
+</script>
+
+</body>
+</html>
